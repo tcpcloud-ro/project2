@@ -8,11 +8,11 @@ output "vpc_arn" {
   value       = aws_vpc.arn
 }
 
-
+# ARN uri pt tot (teste in GO ->Pipeline)
 
 output "azs" {
   description = "A list of availability zones specified as argument to this module"
-  value       = var.azs
+  value       = azs.arn
 }
 
 output "name" {
