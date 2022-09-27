@@ -8,32 +8,29 @@ output "vpc_arn" {
   value       = aws_vpc.arn
 }
 
-# ARN uri pt tot (teste in GO ->Pipeline)
-
-output "azs" {
-  description = "A list of availability zones specified as argument to this module"
-  value       = azs.arn
-}
-
-output "name" {
-  description = "The name of the VPC specified as argument to this module"
-  value       = var.name
-}
-
-
 output "public_subnets" {
   description = "List of IDs of public subnets"
-  value       = aws_subnet.public[*].id
+  value       = aws_subnet.public_subnet_[*].id
 }
 
 output "public_subnet_arns" {
   description = "List of ARNs of public subnets"
-  value       = aws_subnet.public[*].arn
+  value       = aws_subnet.public_subnet_[*].arn
 }
 
 output "public_subnets_cidr_blocks" {
   description = "List of cidr_blocks of public subnets"
-  value       = compact(aws_subnet.public[*].cidr_block)
+  value       = compact(aws_subnet.public_subnet[*].cidr_block)
 }
 
+output "sg_frontend_arn" {
+  value       = sg_frontend.arn
+}
 
+output "igw_arn" {
+  value       = igwn.arn
+}
+
+output "route_table_frontend_arn" {
+  value       = route_table_frontend.arn
+}
